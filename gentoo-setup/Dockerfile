@@ -1,5 +1,11 @@
 FROM olifre/gentoo-docker-physics.gentoo-portage
 MAINTAINER olifre
+
+# Update a bit
+RUN emerge -uDNv @system @world
+RUN emerge -v --depclean
+RUN rm -rf /usr/portage/distfiles/* /usr/portage/distfiles/.*
+
 # Timezone stuff
 RUN echo "Europe/Berlin" /etc/timezone
 RUN emerge --config sys-libs/timezone-data
