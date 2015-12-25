@@ -5,3 +5,4 @@ RUN mkdir -p /usr/portage
 RUN chown -R portage:portage /usr/portage
 RUN emerge-webrsync
 RUN eselect news read new
+RUN emerge -v gentoolkit
