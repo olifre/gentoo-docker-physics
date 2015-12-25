@@ -5,4 +5,5 @@ RUN mkdir -p /etc/portage/env/
 COPY debug.conf /etc/portage/env/
 RUN mkdir -p /etc/portage/package.env/
 COPY glibc-dbg /etc/portage/package.env/
-RUN emerge -v glibc
+RUN emerge -v dev-util/debugedit
+RUN emerge -v sys-libs/glibc
