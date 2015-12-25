@@ -5,3 +5,5 @@ RUN mkdir -p /etc/portage/env/
 RUN cp -v debug.conf /etc/portage/env/
 RUN cp -v glibc-dbg /etc/portage/package.env/
 RUN emerge -v glibc
+RUN emerge -uDNv @system @world
+RUN emerge -v --depclean
