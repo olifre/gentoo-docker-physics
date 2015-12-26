@@ -9,3 +9,5 @@ COPY glibc-dbg /etc/portage/package.env/
 RUN euse -E threads
 RUN emerge -v dev-util/debugedit
 RUN emerge -v sys-libs/glibc
+
+RUN rm -rf /usr/portage/distfiles/*
