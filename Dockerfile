@@ -1,4 +1,4 @@
-FROM olifre/gentoo-docker-physics.gentoo-portage
+FROM olifre/gentoo-docker-physics.portage
 MAINTAINER olifre
 
 # Update a bit
