@@ -1,1 +1,1 @@
-# gentoo-docker-physics
+Preparation tasks for ROOT compilation
