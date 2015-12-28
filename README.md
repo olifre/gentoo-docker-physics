@@ -1,1 +1,1 @@
-# gentoo-docker-physics
+Adding debug symbols
