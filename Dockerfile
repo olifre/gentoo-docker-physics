@@ -1,4 +1,4 @@
-FROM olifre/gentoo-docker-physics.gentoo-setup
+FROM olifre/gentoo-docker-physics.setup
 MAINTAINER olifre
 
 RUN mkdir -p /etc/portage/env/
