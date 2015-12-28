@@ -8,7 +8,7 @@ COPY glibc-dbg /etc/portage/package.env/
 # Fix Gentoo default useflags
 RUN euse -E threads
 RUN emerge -j3 -v dev-util/debugedit
-RUN emerge -v sys-libs/glibc
+RUN travis_wait 60 emerge -j3 -v sys-libs/glibc
 
 # Update once more
 RUN emerge -j3 -uDNv @system @world
