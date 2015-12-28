@@ -30,4 +30,7 @@ RUN rc-update delete netmount default
 # Log boot process to /var/log/rc.log
 RUN sed -i 's/^#\(rc_logger="YES"\)$/\1/' /etc/rc.conf
 
+# Setup portage stuff
+RUN echo 'MAKEOPTS="-j3"' >> /etc/portage/make.conf
+
 # Syslog? 

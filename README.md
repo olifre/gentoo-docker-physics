@@ -1,1 +1,1 @@
-# gentoo-docker-physics
+Basic setup of minimal gentoo with portage
