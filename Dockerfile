@@ -11,7 +11,7 @@ RUN emerge -v --depclean
 RUN rm -rf /usr/portage/distfiles/*
 
 # Compile some heavy stuff which is needed for ROOT
-RUN emerge -j3 -v clang
+RUN travis_wait 120 emerge -j3 -v clang
 
 # Update once more
 RUN emerge -j3 -uDNv @system @world
