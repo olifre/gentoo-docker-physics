@@ -6,7 +6,7 @@ euse -E graphviz http postgres sqlite qt4 math xml clang qt3support jpeg gif png
 
 # Update once more
 emerge -j3 -uDNv @system @world
-emerge -v --depclean
+emerge --depclean
 
 # Compile some heavy stuff which is needed for ROOT
 RUN emerge -j3 -v clang
