@@ -6,6 +6,6 @@ services:
 language: generic
 
 script:
-  - travis_wait 119 docker build -t olifre/gentoo-docker-physics.root-prepare .
+  - travis_wait 119 docker build -t olifre/gentoo-docker-physics.root .
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push olifre/gentoo-docker-physics.root-prepare
+  - docker push olifre/gentoo-docker-physics.root
