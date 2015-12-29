@@ -3,6 +3,9 @@ machine:
     - docker
 
 dependencies:
+  cache_directories:
+    - "~/docker"
+    - "~/.ccache"
   override:
     - docker info
     - ./build-docker.sh:
