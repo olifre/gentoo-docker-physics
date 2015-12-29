@@ -13,7 +13,7 @@ dependencies:
 
 test:
   override:
-    - /usr/bin/true
+    - /bin/true
 
 deployment:
   hub:
