@@ -9,3 +9,5 @@ docker run --volumes-from portage \
            --name gentoo \
            gentoo/stage3-amd64 \
            /build/build-script.sh
+
+docker commit gentoo olifre/gentoo-docker-physics.setup
