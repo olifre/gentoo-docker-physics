@@ -5,7 +5,8 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t olifre/gentoo-docker-physics.root-prepare .
+    - docker build -t olifre/gentoo-docker-physics.root-prepare .:
+      timeout: 2400
 
 deployment:
   hub:
