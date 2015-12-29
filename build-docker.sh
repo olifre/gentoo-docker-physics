@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -ex
 
 INPUT_CONTAINER=${1:-gentoo/stage3-amd64}
 OUTPUT_CONTAINER=${2:-olifre/gentoo-docker-physics.FIXME}

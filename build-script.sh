@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -ex
 
 # CCACHE stats
 CCACHE_DIR="/var/tmp/ccache" ccache -s
