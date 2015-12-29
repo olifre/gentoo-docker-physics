@@ -1,0 +1,14 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t olifre/gentoo-docker-physics.root-prepare .
+
+deployment:
+  hub:
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push olifre/gentoo-docker-physics.root-prepare || docker push olifre/gentoo-docker-physics.root-prepare
