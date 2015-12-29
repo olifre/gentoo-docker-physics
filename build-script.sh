@@ -9,7 +9,7 @@ emerge -j3 -uDNv @system @world
 emerge --depclean
 
 # Compile some heavy stuff which is needed for ROOT
-RUN emerge -j3 -v clang
+emerge -j3 -v clang
 
 # CCACHE stats
 CCACHE_DIR="/var/tmp/ccache" ccache -s
