@@ -2,9 +2,9 @@ FROM olifre/gentoo-docker-physics.portage
 MAINTAINER olifre
 
 # Update a bit
-RUN emerge -j3 -uDNv @system @world
-RUN emerge -v --depclean
-RUN rm -rf /usr/portage/distfiles/*
+RUN emerge -j3 -uDNv @system @world && \
+    emerge -v --depclean && \
+    rm -rf /usr/portage/distfiles/*
 
 # Timezone stuff
 RUN echo "Europe/Berlin" /etc/timezone
@@ -17,7 +17,8 @@ RUN locale-gen
 RUN echo 'LANG="en_US.UTF-8"' >> /etc/env.d/02locale
 RUN env-update
 RUN echo 'LINGUAS="en en_US"' >> /etc/portage/make.conf
-RUN emerge -j3 -v --newuse --deep --with-bdeps=y @system @world
+RUN emerge -j3 -v --newuse --deep --with-bdeps=y @system @world && \
+    rm -rf /usr/portage/distfiles/*
 
 # OpenRC setup
 RUN sed -i 's/#rc_sys=""/rc_sys="lxc"/g' /etc/rc.conf
