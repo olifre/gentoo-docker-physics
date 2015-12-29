@@ -1,7 +1,5 @@
 #!/bin/bash -x
 
-CCACHE_DIR="/var/tmp/ccache" ccache -M 1G
-
 mkdir -p /etc/portage/env/
 cp /build/debug.conf /etc/portage/env/
 mkdir -p /etc/portage/package.env/
