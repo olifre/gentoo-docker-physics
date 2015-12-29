@@ -1,0 +1,16 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - ./build-docker.sh
+        timeout: 6000
+
+deployment:
+  hub:
+    branch: /*/
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push olifre/gentoo-docker-physics.setup || docker push olifre/gentoo-docker-physics.setup
