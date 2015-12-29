@@ -7,7 +7,7 @@ echo 'GENTOO_MIRRORS="http://distfiles.gentoo.org/"' >> /etc/portage/make.conf
 eselect news read new
 emerge -v ccache
 CCACHE_DIR="/var/tmp/ccache" ccache -M 100M
-echo 'FEATURES=\"ccache parallel-install fixlafiles \"' >> /etc/portage/make.conf
+echo 'FEATURES="ccache parallel-install fixlafiles"' >> /etc/portage/make.conf
 echo 'CCACHE_SIZE="5G"' >> /etc/portage/make.conf
 emerge -v gentoolkit
 
