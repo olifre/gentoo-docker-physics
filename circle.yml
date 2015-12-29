@@ -3,14 +3,21 @@ machine:
     - docker
 
 dependencies:
+  cache_directories:
+    - "~/docker"
+    - "~/.ccache"
   override:
     - docker info
-    - docker build -t olifre/gentoo-docker-physics.root-prepare .:
+    - ./build-docker.sh olifre/gentoo-docker-physics.debugging olifre/gentoo-docker-physics.root-prepare:
         timeout: 6000
+
+test:
+  override:
+    - /bin/true
 
 deployment:
   hub:
-    branch: /*/
+    branch: /.*/
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push olifre/gentoo-docker-physics.root-prepare || docker push olifre/gentoo-docker-physics.root-prepare
