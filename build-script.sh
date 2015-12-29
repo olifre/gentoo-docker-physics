@@ -1,5 +1,8 @@
 #!/bin/bash -x
 
+# CCACHE stats
+CCACHE_DIR="/var/tmp/ccache" ccache -s
+
 mkdir -p /etc/portage/env/
 cp /build/debug.conf /etc/portage/env/
 mkdir -p /etc/portage/package.env/
@@ -13,4 +16,5 @@ emerge -j3 -v dev-util/debugedit sys-libs/glibc
 emerge -j3 -uDNv @system @world
 emerge --depclean
 
+# CCACHE stats
 CCACHE_DIR="/var/tmp/ccache" ccache -s
