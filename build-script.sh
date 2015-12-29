@@ -15,4 +15,4 @@ echo 'CCACHE_SIZE="2G"' >> /etc/portage/make.conf
 CCACHE_DIR="/var/tmp/ccache" ccache -s
 
 # Self-destruct
-rm -v -rf $0
+#rm -v -rf $0
