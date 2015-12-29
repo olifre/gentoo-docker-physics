@@ -1,24 +1,15 @@
 #!/bin/bash -x
 
 echo 'GENTOO_MIRRORS="http://distfiles.gentoo.org/"' >> /etc/portage/make.conf
-#mkdir -p /usr/portage
-#chown -R portage:portage /usr/portage
-#emerge-webrsync
 eselect news read new
-emerge -v ccache
+emerge -v -j3 ccache
 echo 'FEATURES="ccache parallel-install fixlafiles"' >> /etc/portage/make.conf
 echo 'CCACHE_SIZE="10G"' >> /etc/portage/make.conf
-emerge -v gentoolkit
-
-# Cleanup
-#rm -rf /usr/portage/*'
-
-# Self-destruct
-#rm -v -rf $0
+emerge -v -j3 gentoolkit
 
 # Update a bit
 emerge -j3 -uDNv @system @world
-emerge -v --depclean
+emerge --depclean
 
 # Timezone stuff
 echo "Europe/Berlin" > /etc/timezone
@@ -32,6 +23,7 @@ echo 'LANG="en_US.UTF-8"' >> /etc/env.d/02locale
 env-update
 echo 'LINGUAS="en en_US"' >> /etc/portage/make.conf
 
+# Update using new environment
 emerge -j3 -v --newuse --deep --with-bdeps=y @system @world
 
 # OpenRC setup
