@@ -12,6 +12,9 @@ echo 'PKGDIR="/var/packages"' >> /etc/portage/make.conf
 echo 'EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --usepkg"' >> /etc/portage/make.conf
 emerge -v -j3 gentoolkit portage-utils
 
+# Disable some unneeded stuff
+euse -D tcpd pam ncurses crypt cracklib
+
 # Update a bit
 emerge -j3 -uDNv @system @world
 emerge --depclean
