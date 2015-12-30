@@ -22,6 +22,11 @@ PYTHON_TARGETS=$(emerge --info | sed -n 's/.*PYTHON_TARGETS="\([^"]*\)".*/\1/p')
 	echo "PYTHON_SINGLE_TARGET=\"${PYTHON_TARGET}\"" >> /etc/portage/make.conf
 eselect python set $(eselect python show --python3)
 
+# Remove unneeded system packages
+mkdir -p /etc/portage/profile/
+echo "-*virtual/ssh" >> /etc/portage/profile/packages
+echo "-*virtual/dev-manager" >> /etc/portage/profile/packages
+
 # Update a bit
 emerge -j3 -uDNv @system @world
 emerge --depclean
