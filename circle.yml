@@ -8,6 +8,8 @@ dependencies:
     - "~/.ccache-setup"
     - "~/packages-setup"
   override:
+    - sudo apt-get update
+    - sudo apt-get install -y ccache
     - docker info
     - ./build-docker.sh gentoo/stage3-amd64 olifre/gentoo-docker-physics.setup setup:
         timeout: 10800
