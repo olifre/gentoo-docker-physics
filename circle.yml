@@ -5,11 +5,11 @@ machine:
 dependencies:
   cache_directories:
     - "~/docker"
-    - "~/.ccache"
+    - "~/.ccache-debugging"
   override:
     - docker info
-    - ./build-docker.sh olifre/gentoo-docker-physics.setup olifre/gentoo-docker-physics.debugging:
-        timeout: 6000
+    - ./build-docker.sh olifre/gentoo-docker-physics.setup olifre/gentoo-docker-physics.debugging debugging:
+        timeout: 10800
 
 test:
   override:
