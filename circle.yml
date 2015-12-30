@@ -5,10 +5,10 @@ machine:
 dependencies:
   cache_directories:
     - "~/docker"
-    - "~/.ccache"
+    - "~/.ccache-setup"
   override:
     - docker info
-    - ./build-docker.sh gentoo/stage3-amd64 olifre/gentoo-docker-physics.setup:
+    - ./build-docker.sh gentoo/stage3-amd64 olifre/gentoo-docker-physics.setup setup:
         timeout: 6000
 
 test:
