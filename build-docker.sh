@@ -4,8 +4,6 @@ INPUT_CONTAINER=${1:-gentoo/stage3-amd64}
 OUTPUT_CONTAINER=${2:-olifre/gentoo-docker-physics.FIXME}
 BRANCHNAME=${3:-master}
 
-docker create -v /usr/portage --name portage gentoo/portage
-
 mkdir -p ~/.ccache-${BRANCHNAME}/
 mkdir -p ~/packages-${BRANCHNAME}/
 
@@ -17,6 +15,8 @@ CCACHE_DIR=~/.ccache-${BRANCHNAME}/ ccache -s
 
 # Package stats
 du -sh ~/packages-${BRANCHNAME}/* | sort -h
+
+docker create -v /usr/portage --name portage gentoo/portage
 
 docker run --volumes-from portage \
            -v ~/.ccache-${BRANCHNAME}:/var/tmp/ccache \
