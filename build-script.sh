@@ -13,6 +13,7 @@ echo 'EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --usepkg"' >> /etc/portage/mak
 emerge -v -j3 gentoolkit portage-utils
 
 # Disable some unneeded stuff
+euse -E minimal
 euse -D tcpd pam ncurses crypt cracklib acl
 
 # Enforce python 3 only
@@ -26,6 +27,13 @@ eselect python set $(eselect python show --python3)
 mkdir -p /etc/portage/profile/
 echo "-*virtual/ssh" >> /etc/portage/profile/packages
 echo "-*virtual/dev-manager" >> /etc/portage/profile/packages
+echo "-*virtual/service-manager" >> /etc/portage/profile/packages
+echo "-*virtual/modutils" >> /etc/portage/profile/packages
+echo "-*virtual/man" >> /etc/portage/profile/packages
+echo "-*sys-apps/man-pages" >> /etc/portage/profile/packages
+echo "-*sys-fs/e2fsprogs" >> /etc/portage/profile/packages
+echo "-*sys-apps/net-tools" >> /etc/portage/profile/packages
+#echo "-*sys-apps/openrc" >> /etc/portage/profile/packages
 
 # Update a bit
 emerge -j3 -uDNv @system @world
