@@ -5,10 +5,10 @@ machine:
 dependencies:
   cache_directories:
     - "~/docker"
-    - "~/.ccache"
+    - "~/.ccache-root"
   override:
     - docker info
-    - ./build-docker.sh olifre/gentoo-docker-physics.root-prepare olifre/gentoo-docker-physics.root:
+    - ./build-docker.sh olifre/gentoo-docker-physics.root-prepare olifre/gentoo-docker-physics.root root:
         timeout: 10800
 
 test:
