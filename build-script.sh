@@ -13,7 +13,7 @@ echo 'EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --usepkg"' >> /etc/portage/mak
 emerge -v -j3 gentoolkit portage-utils
 
 # Disable some unneeded stuff
-euse -D tcpd pam ncurses crypt cracklib
+euse -D tcpd pam ncurses crypt cracklib acl
 
 # Enforce python 3 only
 PYTHON_TARGETS=$(emerge --info | sed -n 's/.*PYTHON_TARGETS="\([^"]*\)".*/\1/p') && \
@@ -29,7 +29,7 @@ echo "-*virtual/dev-manager" >> /etc/portage/profile/packages
 
 # Update a bit
 emerge -j3 -uDNv @system @world
-emerge --depclean
+emerge -v --depclean
 
 # Timezone stuff
 echo "Europe/Berlin" > /etc/timezone
