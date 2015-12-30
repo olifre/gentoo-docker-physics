@@ -6,6 +6,7 @@ dependencies:
   cache_directories:
     - "~/docker"
     - "~/.ccache-setup"
+    - "~/packages-setup"
   override:
     - docker info
     - ./build-docker.sh gentoo/stage3-amd64 olifre/gentoo-docker-physics.setup setup:
