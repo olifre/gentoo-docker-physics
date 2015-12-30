@@ -9,7 +9,7 @@ dependencies:
   override:
     - docker info
     - ./build-docker.sh olifre/gentoo-docker-physics.debugging olifre/gentoo-docker-physics.root-prepare:
-        timeout: 6000
+        timeout: 10800
 
 test:
   override:
