@@ -15,6 +15,13 @@ emerge -v -j3 gentoolkit portage-utils
 # Disable some unneeded stuff
 euse -D tcpd pam ncurses crypt cracklib
 
+# Enforce python 3 only
+PYTHON_TARGETS=$(emerge --info | sed -n 's/.*PYTHON_TARGETS="\([^"]*\)".*/\1/p') && \
+	PYTHON_TARGET="${PYTHON_TARGETS##* }" && \
+	echo "PYTHON_TARGETS=\"${PYTHON_TARGET}\"" >> /etc/portage/make.conf && \
+	echo "PYTHON_SINGLE_TARGET=\"${PYTHON_TARGET}\"" >> /etc/portage/make.conf
+eselect python set $(eselect python show --python3)
+
 # Update a bit
 emerge -j3 -uDNv @system @world
 emerge --depclean
