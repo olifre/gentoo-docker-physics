@@ -5,11 +5,18 @@ machine:
 dependencies:
   cache_directories:
     - "~/docker"
-    - "~/.ccache-debugging"
+    - "~/.ccache-${CIRCLE_BRANCH}"
+    - "~/packages-${CIRCLE_BRANCH}"
   override:
+    - sudo apt-get install -y ccache
     - docker info
-    - ./build-docker.sh olifre/gentoo-docker-physics.setup olifre/gentoo-docker-physics.debugging debugging:
+    - CCACHE_DIR=~/.ccache-${CIRCLE_BRANCH}/ ccache -s
+    - CCACHE_DIR=~/.ccache-${CIRCLE_BRANCH}/ ccache -z
+    - du -sh ~/packages-${CIRCLE_BRANCH}/*/*.tbz2 | sort -hr
+    - ./build-docker.sh olifre/gentoo-docker-physics.setup olifre/gentoo-docker-physics.${CIRCLE_BRANCH} ${CIRCLE_BRANCH}:
         timeout: 10800
+    - CCACHE_DIR=~/.ccache-${CIRCLE_BRANCH}/ ccache -s
+    - du -sh ~/packages-${CIRCLE_BRANCH}/*/*.tbz2 | sort -hr
 
 test:
   override:
@@ -20,4 +27,4 @@ deployment:
     branch: /.*/
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push olifre/gentoo-docker-physics.debugging || docker push olifre/gentoo-docker-physics.debugging
+      - docker push olifre/gentoo-docker-physics.${CIRCLE_BRANCH} || docker push olifre/gentoo-docker-physics.${CIRCLE_BRANCH}
