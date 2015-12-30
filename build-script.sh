@@ -9,7 +9,8 @@ echo 'CCACHE_SIZE="10G"' >> /etc/portage/make.conf
 mkdir -p /var/packages
 chown portage:portage /var/packages
 echo 'PKGDIR="/var/packages"' >> /etc/portage/make.conf
-emerge -v -j3 gentoolkit
+echo 'EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --usepkg"' >> /etc/portage/make.conf
+emerge -v -j3 gentoolkit portage-utils
 
 # Update a bit
 emerge -j3 -uDNv @system @world
