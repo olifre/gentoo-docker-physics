@@ -4,11 +4,11 @@ echo 'GENTOO_MIRRORS="http://distfiles.gentoo.org/"' >> /etc/portage/make.conf
 eselect news read new
 emerge -v -j3 ccache
 
-# CCACHE stats
-CCACHE_DIR="/var/tmp/ccache" ccache -s
-
-echo 'FEATURES="ccache parallel-install fixlafiles"' >> /etc/portage/make.conf
+echo 'FEATURES="ccache parallel-install fixlafiles buildpkg"' >> /etc/portage/make.conf
 echo 'CCACHE_SIZE="10G"' >> /etc/portage/make.conf
+mkdir -p /var/packages
+chown portage:portage /var/packages
+echo 'PKGDIR="/var/packages"' >> /etc/portage/make.conf
 emerge -v -j3 gentoolkit
 
 # Update a bit
@@ -45,6 +45,3 @@ sed -i 's/^#\(rc_logger="YES"\)$/\1/' /etc/rc.conf
 echo 'MAKEOPTS="-j3"' >> /etc/portage/make.conf
 
 # Syslog?
-
-# CCACHE stats
-CCACHE_DIR="/var/tmp/ccache" ccache -s
