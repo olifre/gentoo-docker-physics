@@ -5,9 +5,8 @@ machine:
 dependencies:
   cache_directories:
     - ~/docker
-    - ~/.ccache-$CIRCLE_BRANCH
-    - ~/.ccache-CIRCLE_BRANCH
-    - ~/packages-${CIRCLE_BRANCH}
+    - ~/.ccache-setup
+    - ~/packages-setup
   override:
     - sudo apt-get install -y ccache
     - docker info
