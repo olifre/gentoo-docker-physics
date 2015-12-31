@@ -19,7 +19,7 @@ echo 'EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --usepkg"' >> /etc/portage/mak
 #eselect python set $(eselect python show --python3)
 
 # Install basics
-#emerge -v -j3 gentoolkit portage-utils
+emerge -v -j3 gentoolkit portage-utils
 
 # Turn on sqlite
 euse -E sqlite
