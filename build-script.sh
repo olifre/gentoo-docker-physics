@@ -1,5 +1,9 @@
 #!/bin/bash -ex
 
+# Add science overlay
+layman -a science
+
+# Debug symbols, and keyword things
 cp /build/root-dbg /etc/portage/package.env/
 mkdir -p /etc/portage/package.keywords/
 echo "sci-physics/root" >> /etc/portage/package.keywords/root
