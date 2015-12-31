@@ -14,7 +14,7 @@ emerge -v -j3 gentoolkit portage-utils
 
 # Disable some unneeded stuff
 euse -E minimal
-euse -D tcpd pam ncurses crypt cracklib acl ssl
+euse -D tcpd pam ncurses crypt cracklib acl ssl openmp
 
 # Enforce python 3 only
 PYTHON_TARGETS=$(emerge --info | sed -n 's/.*PYTHON_TARGETS="\([^"]*\)".*/\1/p') && \
@@ -36,6 +36,7 @@ echo "-*sys-apps/net-tools" >> /etc/portage/profile/packages
 echo "-*sys-apps/openrc" >> /etc/portage/profile/packages
 echo "-*net-misc/iputils" >> /etc/portage/profile/packages
 echo "-*sys-apps/iproute2" >> /etc/portage/profile/packages
+echo "-*sys-apps/busybox" >> /etc/portage/profile/packages
 
 # Update a bit
 emerge -j3 -uDNv @system @world
