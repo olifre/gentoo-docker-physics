@@ -17,4 +17,6 @@ docker run --volumes-from portage \
            ${INPUT_CONTAINER} \
            /build/build-script.sh
 
-docker commit gentoo ${OUTPUT_CONTAINER}
+docker export gentoo | docker import - ${OUTPUT_CONTAINER}
+
+#docker commit gentoo ${OUTPUT_CONTAINER}
