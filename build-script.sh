@@ -11,8 +11,8 @@ emerge --depclean
 
 # Compile some heavy stuff which is needed for ROOT
 # LLVM without python since that pulls in python2 again
-mkdir -p /etc/portage/package.use/
-echo "sys-devel/llvm -python" >> /etc/portage/package.use/no-python2
+#mkdir -p /etc/portage/package.use/
+#echo "sys-devel/llvm -python" >> /etc/portage/package.use/no-python2
 emerge -j3 -v sys-devel/clang virtual/opengl dev-util/cmake media-gfx/graphviz dev-db/postgresql
 
 # Update once more
