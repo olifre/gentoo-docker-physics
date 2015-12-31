@@ -14,3 +14,6 @@ emerge -j3 -v sys-devel/clang virtual/opengl dev-util/cmake media-gfx/graphviz d
 # Update once more
 emerge -j3 -uDNv @system @world
 emerge --depclean
+
+# Verbose reverse dependency tree
+emerge -v --depclean
