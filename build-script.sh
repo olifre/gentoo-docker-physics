@@ -39,6 +39,9 @@ echo "-*sys-apps/iproute2" >> /etc/portage/profile/packages
 
 # Update a bit
 emerge -j3 -uDNv @system @world
+emerge --depclean
+
+# Verbose a second time to see dependencies of remaining stuff
 emerge -v --depclean
 
 # Update environment
