@@ -87,9 +87,12 @@ echo 'MAKEOPTS="-j3"' >> /etc/portage/make.conf
 # Syslog?
 
 # Layman
-emerge -v layman
+emerge -v -j3 layman
 echo "source /var/lib/layman/make.conf" >> /etc/portage/make.conf
 layman -L
+
+# Simple depclean
+emerge --depclean
 
 # Verbose depclean to see dependencies of remaining stuff
 emerge -v --depclean
