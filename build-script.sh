@@ -63,15 +63,15 @@ echo 'LINGUAS="en en_US"' >> /etc/portage/make.conf
 emerge -j3 -v --newuse --deep --with-bdeps=y @system @world
 
 # OpenRC setup
-sed -i 's/#rc_sys=""/rc_sys="lxc"/g' /etc/rc.conf
+#sed -i 's/#rc_sys=""/rc_sys="lxc"/g' /etc/rc.conf
 
 # Networking is setup by Docker
-echo 'rc_provide="loopback net"' >> /etc/rc.conf
-rc-update delete loopback boot
-rc-update delete netmount default
+#echo 'rc_provide="loopback net"' >> /etc/rc.conf
+#rc-update delete loopback boot
+#rc-update delete netmount default
 
 # Log boot process to /var/log/rc.log
-sed -i 's/^#\(rc_logger="YES"\)$/\1/' /etc/rc.conf
+#sed -i 's/^#\(rc_logger="YES"\)$/\1/' /etc/rc.conf
 
 # Setup portage stuff
 echo 'MAKEOPTS="-j3"' >> /etc/portage/make.conf
