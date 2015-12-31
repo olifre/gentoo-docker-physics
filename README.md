@@ -1,1 +1,1 @@
-Preparation tasks for ROOT compilation
+Compile Geant4 in addition to ROOT
