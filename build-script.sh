@@ -10,5 +10,9 @@ euse -E threads
 
 emerge -j3 -v dev-util/debugedit sys-libs/glibc
 
+# Cleanup
 emerge -j3 -uDNv @system @world
+emerge --depclean
+
+# Also verbose tree
 emerge --depclean
