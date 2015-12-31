@@ -50,9 +50,6 @@ echo "-*sys-apps/busybox" >> /etc/portage/profile/packages
 emerge -j3 -uDNv @system @world
 emerge --depclean
 
-# Verbose a second time to see dependencies of remaining stuff
-emerge -v --depclean
-
 # Update environment
 env-update
 etc-update
@@ -88,3 +85,11 @@ emerge -j3 -v --newuse --deep --with-bdeps=y @system @world
 echo 'MAKEOPTS="-j3"' >> /etc/portage/make.conf
 
 # Syslog?
+
+# Layman
+emerge -v layman
+echo "source /var/lib/layman/make.conf" >> /etc/portage/make.conf
+layman -L
+
+# Verbose depclean to see dependencies of remaining stuff
+emerge -v --depclean
