@@ -15,4 +15,4 @@ emerge -j3 -uDNv @system @world
 emerge --depclean
 
 # Also verbose tree
-emerge --depclean
+emerge -v --depclean
