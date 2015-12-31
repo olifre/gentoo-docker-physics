@@ -33,11 +33,19 @@ echo "-*virtual/man" >> /etc/portage/profile/packages
 echo "-*sys-apps/man-pages" >> /etc/portage/profile/packages
 echo "-*sys-fs/e2fsprogs" >> /etc/portage/profile/packages
 echo "-*sys-apps/net-tools" >> /etc/portage/profile/packages
-#echo "-*sys-apps/openrc" >> /etc/portage/profile/packages
+echo "-*sys-apps/openrc" >> /etc/portage/profile/packages
+
+#TESTING
+emerge -v --depclean python:2.7
 
 # Update a bit
 emerge -j3 -uDNv @system @world
 emerge -v --depclean
+
+# Update environment
+env-update
+etc-update
+hash -r
 
 # Timezone stuff
 echo "Europe/Berlin" > /etc/timezone
