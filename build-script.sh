@@ -12,6 +12,9 @@ echo 'PKGDIR="/var/packages"' >> /etc/portage/make.conf
 echo 'EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --usepkg"' >> /etc/portage/make.conf
 emerge -v -j3 gentoolkit portage-utils
 
+# Turn on sqlite
+euse -E sqlite
+
 # Disable some unneeded stuff
 euse -E minimal
 euse -D tcpd pam ncurses crypt cracklib acl ssl
@@ -22,6 +25,9 @@ PYTHON_TARGETS=$(emerge --info | sed -n 's/.*PYTHON_TARGETS="\([^"]*\)".*/\1/p')
 	echo "PYTHON_TARGETS=\"${PYTHON_TARGET}\"" >> /etc/portage/make.conf && \
 	echo "PYTHON_SINGLE_TARGET=\"${PYTHON_TARGET}\"" >> /etc/portage/make.conf
 eselect python set $(eselect python show --python3)
+
+# Would make some packages pull in python2 again
+euse -D introspection
 
 # Remove unneeded system packages
 mkdir -p /etc/portage/profile/
