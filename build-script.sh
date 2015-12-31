@@ -10,6 +10,15 @@ mkdir -p /var/packages
 chown portage:portage /var/packages
 echo 'PKGDIR="/var/packages"' >> /etc/portage/make.conf
 echo 'EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --usepkg"' >> /etc/portage/make.conf
+
+# Enforce python 3 only
+PYTHON_TARGETS=$(emerge --info | sed -n 's/.*PYTHON_TARGETS="\([^"]*\)".*/\1/p') && \
+	PYTHON_TARGET="${PYTHON_TARGETS##* }" && \
+	echo "PYTHON_TARGETS=\"${PYTHON_TARGET}\"" >> /etc/portage/make.conf && \
+	echo "PYTHON_SINGLE_TARGET=\"${PYTHON_TARGET}\"" >> /etc/portage/make.conf
+eselect python set $(eselect python show --python3)
+
+# Install basics
 emerge -v -j3 gentoolkit portage-utils
 
 # Turn on sqlite
@@ -18,13 +27,6 @@ euse -E sqlite
 # Disable some unneeded stuff
 euse -E minimal
 euse -D tcpd pam ncurses crypt cracklib acl ssl
-
-# Enforce python 3 only
-PYTHON_TARGETS=$(emerge --info | sed -n 's/.*PYTHON_TARGETS="\([^"]*\)".*/\1/p') && \
-	PYTHON_TARGET="${PYTHON_TARGETS##* }" && \
-	echo "PYTHON_TARGETS=\"${PYTHON_TARGET}\"" >> /etc/portage/make.conf && \
-	echo "PYTHON_SINGLE_TARGET=\"${PYTHON_TARGET}\"" >> /etc/portage/make.conf
-eselect python set $(eselect python show --python3)
 
 # Would make some packages pull in python2 again
 euse -D introspection
