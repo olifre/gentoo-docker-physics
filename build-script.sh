@@ -14,7 +14,7 @@ emerge -v -j3 gentoolkit portage-utils
 
 # Disable some unneeded stuff
 euse -E minimal
-euse -D tcpd pam ncurses crypt cracklib acl ssl openmp
+euse -D tcpd pam ncurses crypt cracklib acl ssl
 
 # Enforce python 3 only
 PYTHON_TARGETS=$(emerge --info | sed -n 's/.*PYTHON_TARGETS="\([^"]*\)".*/\1/p') && \
