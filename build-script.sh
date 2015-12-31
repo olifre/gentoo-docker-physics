@@ -9,6 +9,8 @@ emerge -j3 -uDNv @system @world
 emerge --depclean
 
 # Compile some heavy stuff which is needed for ROOT
+# LLVM without python since that pulls in python2 again
+echo "sys-devel/llvm -python" >> /etc/portage/package.use
 emerge -j3 -v sys-devel/clang virtual/opengl dev-util/cmake media-gfx/graphviz dev-db/postgresql
 
 # Update once more
