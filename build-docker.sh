@@ -9,6 +9,8 @@ mkdir -p ~/packages-${BRANCHNAME}/
 
 docker create -v /usr/portage --name portage gentoo/portage
 
+ls -la ~/.ccache-${BRANCHNAME}/
+
 docker run --volumes-from portage \
            -v ~/.ccache-${BRANCHNAME}:/var/tmp/ccache \
            -v ~/packages-${BRANCHNAME}:/var/packages \
