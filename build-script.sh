@@ -10,7 +10,7 @@ echo "sci-physics/geant:4" >> /etc/portage/package.keywords/geant4
 echo "sci-physics/geant-data" >> /etc/portage/package.keywords/geant4
 echo "sci-physics/clhep" >> /etc/portage/package.keywords/geant4
 mkdir -p /etc/portage/package.use
-echo "sci-physics/geant:4 data -threads" >> /etc/portage/package.use/geant4
+echo "sci-physics/geant:4 data -threads opengl geant3" >> /etc/portage/package.use/geant4
 
 # Compile geant4
 emerge -v -j3 sci-physics/geant:4
