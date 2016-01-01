@@ -1,5 +1,9 @@
 #!/bin/bash -ex
 
+# Debug symbols
+mkdir -p /etc/portage/package.env/
+cp /build/geant-dbg /etc/portage/package.env/
+
 # Keywords and flags for geant4
 mkdir -p /etc/portage/package.keywords
 echo "sci-physics/geant:4" >> /etc/portage/package.keywords/geant4
