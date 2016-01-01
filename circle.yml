@@ -28,4 +28,5 @@ deployment:
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker images -a --no-trunc
-      - docker push olifre/gentoo-docker-physics.${CIRCLE_BRANCH} || docker push olifre/gentoo-docker-physics.${CIRCLE_BRANCH}
+      - docker push olifre/gentoo-docker-physics.${CIRCLE_BRANCH} || docker push olifre/gentoo-docker-physics.${CIRCLE_BRANCH}:
+          timeout: 3600
