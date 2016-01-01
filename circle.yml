@@ -28,6 +28,6 @@ deployment:
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker images -a --no-trunc
-      - docker push olifre/gentoo-docker-physics.${CIRCLE_BRANCH} || docker push olifre/gentoo-docker-physics.${CIRCLE_BRANCH}
+      - docker push olifre/gentoo-docker-physics.${CIRCLE_BRANCH} || docker push olifre/gentoo-docker-physics.${CIRCLE_BRANCH}:
           timeout: 3600
       - curl -v -X POST https://circleci.com/api/v1/project/olifre/gentoo-docker-physics/tree/root-geant-addons?circle-token=${CIRCLE_TOKEN}
