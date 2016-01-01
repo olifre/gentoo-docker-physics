@@ -3,6 +3,8 @@
 # Keywords and flags for geant4
 mkdir -p /etc/portage/package.keywords
 echo "sci-physics/geant:4" >> /etc/portage/package.keywords/geant4
+echo "sci-physics/geant-data" >> /etc/portage/package.keywords/geant4
+echo "sci-physics/clhep:4" >> /etc/portage/package.keywords/geant4
 mkdir -p /etc/portage/package.use
 echo "sci-physics/geant:4 data -threads" >> /etc/portage/package.use/geant4
 
