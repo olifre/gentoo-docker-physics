@@ -4,6 +4,7 @@
 layman -a science
 
 # Debug symbols, and keyword things
+mkdir -p /etc/portage/package.env
 cp /build/root-dbg /etc/portage/package.env/
 mkdir -p /etc/portage/package.keywords/
 echo "sci-physics/root" >> /etc/portage/package.keywords/root
