@@ -8,8 +8,6 @@ echo "sci-physics/clhep" >> /etc/portage/package.keywords/geant4
 mkdir -p /etc/portage/package.use
 echo "sci-physics/geant:4 data -threads" >> /etc/portage/package.use/geant4
 
-ls -la /var/tmp/ccache
-
 # Compile geant4
 emerge -v -j3 sci-physics/geant:4
 
