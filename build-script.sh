@@ -6,6 +6,7 @@ emerge -v -j3 ccache
 
 echo 'FEATURES="ccache parallel-install fixlafiles buildpkg"' >> /etc/portage/make.conf
 echo 'CCACHE_SIZE="10G"' >> /etc/portage/make.conf
+echo 'CCACHE_COMPRESS="true"' >> /etc/portage/make.conf
 mkdir -p /var/packages
 chown portage:portage /var/packages
 echo 'PKGDIR="/var/packages"' >> /etc/portage/make.conf
