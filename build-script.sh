@@ -21,6 +21,9 @@ echo 'EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --usepkg"' >> /etc/portage/mak
 # Install basics
 emerge -v -j3 gentoolkit portage-utils
 
+# Turn on bindist since we build for docker
+euse -E bindist
+
 # Turn on sqlite
 euse -E sqlite
 
