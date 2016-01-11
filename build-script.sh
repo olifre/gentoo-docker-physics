@@ -22,7 +22,7 @@ emerge --depclean
 # LLVM without python since that pulls in python2 again
 #mkdir -p /etc/portage/package.use/
 #echo "sys-devel/llvm -python" >> /etc/portage/package.use/no-python2
-emerge -j3 -v sys-devel/clang virtual/opengl dev-util/cmake media-gfx/graphviz dev-db/postgresql
+emerge -j3 -v sys-devel/clang virtual/opengl dev-util/cmake media-gfx/graphviz dev-db/postgresql x11-libs/libXft
 
 # Update once more
 emerge -j3 -uDNv @system @world
