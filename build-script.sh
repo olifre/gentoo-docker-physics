@@ -1,5 +1,10 @@
 #!/bin/bash -ex
 
+# Safety.
+chown -R portage:portage /usr/portage
+chown -R portage:portage /var/tmp/ccache
+chown -R portage:portage /var/packages
+
 # Add science overlay
 layman -a science
 
@@ -8,11 +13,11 @@ mkdir -p /etc/portage/package.env
 cp /build/root-dbg /etc/portage/package.env/
 mkdir -p /etc/portage/package.keywords/
 echo 'sci-physics/root **' >> /etc/portage/package.keywords/root
-euse -E graphviz http postgres sqlite math xml clang qt3support jpeg gif png tiff truetype fontconfig qt4
+euse -E graphviz http postgres sqlite math xml clang qt3support jpeg gif png tiff truetype fontconfig
 # qt4 off for now
 
 # Disable Qt, saves some MiB
-euse -D qt5
+euse -D qt4 qt5
 
 # Update after flag changes
 emerge -j3 -uDNv @system @world
