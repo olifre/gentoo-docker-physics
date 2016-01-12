@@ -1,5 +1,10 @@
 #!/bin/bash -ex
 
+# Safety.
+chown -R portage:portage /usr/portage
+chown -R portage:portage /var/tmp/ccache
+chown -R portage:portage /var/packages
+
 # Keywords and flags for geant4
 mkdir -p /etc/portage/package.keywords
 echo "sci-physics/vgm **" >> /etc/portage/package.keywords/physics-addons
