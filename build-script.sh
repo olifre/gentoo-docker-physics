@@ -1,5 +1,10 @@
 #!/bin/bash -ex
 
+# Safety.
+chown -R portage:portage /usr/portage
+chown -R portage:portage /var/tmp/ccache
+chown -R portage:portage /var/packages
+
 mkdir -p /etc/portage/env/
 cp /build/debug.conf /etc/portage/env/
 mkdir -p /etc/portage/package.env/
