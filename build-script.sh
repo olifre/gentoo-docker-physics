@@ -13,6 +13,10 @@ mkdir -p /etc/portage/package.env
 cp /build/root-dbg /etc/portage/package.env/
 mkdir -p /etc/portage/package.keywords/
 echo 'sci-physics/root **' >> /etc/portage/package.keywords/root
+
+mkdir -p /etc/portage/package.use/
+echo 'sci-physics/root -minimal' >> /etc/portage/package.use/root
+
 euse -E graphviz http postgres sqlite math xml clang qt3support jpeg gif png tiff truetype fontconfig
 # qt4 off for now
 
