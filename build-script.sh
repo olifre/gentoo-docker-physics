@@ -11,6 +11,12 @@ mkdir -p /var/packages
 chown portage:portage /var/packages
 echo 'PKGDIR="/var/packages"' >> /etc/portage/make.conf
 echo 'EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --usepkg"' >> /etc/portage/make.conf
+echo 'PORT_LOGDIR="/var/log/portage"' >> /etc/portage/make.conf
+
+# Safety.
+chown -R portage:portage /usr/portage
+chown -R portage:portage /var/tmp/ccache
+chown -R portage:portage /var/packages
 
 # Enforce python 3 only
 #PYTHON_TARGETS=$(emerge --info | sed -n 's/.*PYTHON_TARGETS="\([^"]*\)".*/\1/p') && \
