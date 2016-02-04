@@ -37,7 +37,7 @@ euse -E sqlite
 
 # Disable some unneeded stuff
 euse -E minimal
-euse -D tcpd pam crypt cracklib acl
+euse -D tcpd pam crypt cracklib acl perl
 
 # Would make some packages pull in python2 again
 euse -D introspection
