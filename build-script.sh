@@ -26,7 +26,7 @@ chown -R portage:portage /var/packages
 #eselect python set $(eselect python show --python3)
 
 # Install basics
-emerge -v -j3 gentoolkit portage-utils
+emerge -v -j3 gentoolkit
 
 # Turn on bindist since we build for docker
 # on by default on gentoo
