@@ -28,4 +28,4 @@ deployment:
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker images -a --no-trunc
-      - ./pushItAndNext.sh ${CIRCLE_BRANCH} root ${CIRCLE_TOKEN}
+      - ./push-it-and-next.sh ${CIRCLE_BRANCH} root ${CIRCLE_TOKEN}
