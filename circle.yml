@@ -29,6 +29,4 @@ deployment:
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker images -a --no-trunc
-      - if [ $RERUN -eq 0 ]; then docker push olifre/gentoo-docker-physics.${CIRCLE_BRANCH} || docker push olifre/gentoo-docker-physics.${CIRCLE_BRANCH}; fi
-      - if [ $RERUN -eq 0 ]; then NEXT=root; else NEXT=prep-root; fi
-      - curl -v -X POST https://circleci.com/api/v1/project/olifre/gentoo-docker-physics/tree/${NEXT}?circle-token=${CIRCLE_TOKEN}
+      - ./pushItAndNext.sh ${CIRCLE_BRANCH} root ${CIRCLE_TOKEN}
